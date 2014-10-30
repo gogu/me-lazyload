@@ -15,9 +15,11 @@ angular.module('me-lazyload', [])
         if(isVisible($el)) {
           $el.attr('src', $el.lazySrc);
           $el.on('load', function() {
-            $el.css('opacity', '1');
+            this.style.opacity = 1;
           });
           els.splice(index, 1);
+        } else {
+          return;
         }
       });
     }
